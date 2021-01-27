@@ -6,7 +6,8 @@ class Login extends React.Component {
         credentials: {
             username: "",
             password: ""
-        }
+        },
+        isLoading: false
     };
 
     handleChange = e => {
@@ -29,11 +30,12 @@ class Login extends React.Component {
                 this.props.history.push("/protected");
             })
             .catch((err) => {
-                console.log("ERROR LOGIN INCORRECT:", err.message);
+                console.log("ERROR LOGIN INCORRECT:", err.response.data.error);
             });
     };
 
     render() {
+        const { isLoading } = this.state
         return(
             <div className="login">
                 <form onSubmit={this.login}>

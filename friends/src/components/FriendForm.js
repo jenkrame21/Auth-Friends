@@ -38,7 +38,9 @@ class FriendForm extends React.Component {
             <div className="add-friend-form">
                 <form onSubmit={this.handleSubmit}>
                     <label>Name: 
-                        <input className="friendForm-input"
+                        <input
+                        className="friendForm-input"
+                        id="name"
                         name="name"
                         type="text"
                         value={this.state.name}
@@ -46,7 +48,9 @@ class FriendForm extends React.Component {
                         />
                     </label>
                     <label>ID: 
-                        <input className="friendForm-input"
+                        <input
+                        className="friendForm-input"
+                        id="id"
                         name="id"
                         type="number"
                         value={this.state.id}
@@ -54,7 +58,9 @@ class FriendForm extends React.Component {
                         />
                     </label>
                     <label>Age: 
-                        <input className="friendForm-input"
+                        <input
+                        className="friendForm-input"
+                        id="age"
                         name="age"
                         type="number"
                         value={this.state.age}
@@ -62,7 +68,9 @@ class FriendForm extends React.Component {
                         />
                     </label>
                     <label>Email: 
-                        <input className="friendForm-input"
+                        <input
+                        className="friendForm-input"
+                        id="email"
                         name="email"
                         type="text"
                         value={this.state.email}

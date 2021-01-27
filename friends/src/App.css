@@ -71,6 +71,7 @@ h2 {
 label {
   margin: 2%;
   display: flex;
+  font-weight: bold;
 }
 
 .removeBtn {

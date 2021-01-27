@@ -9,15 +9,23 @@ import './App.css';
 
 function App() {
 
+  // Logout Functional
+  const logout = () => {
+    // Removes token
+    localStorage.removeItem('token');
+    // Redirects to login page
+    window.location.href = '/login';
+  };
+
   return (
     <Router>
       <div className="App">
         <ul>
           <li>
-            <img src="/imgaes/clipart4184997.png" alt="Friends Logo"/>
+            <Link to="/login">Login</Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link onClick={logout} to="/logout">Logout</Link>
           </li>
           <li>
             {

@@ -21,20 +21,20 @@ class Friends extends React.Component {
                 })
             })
             .catch((err) => {
-                console.log(err);
+                console.log("Error Getting Friends:", err.response.data.error);
             })
     };
 
-    // removeFriend = () => {
-    //     axiosWithAuth()
-    //         .delete(`"/friends/${id}"`)
-    //             .then((res) => {
-    //                 console.log(res);
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err.message);
-    //             });
-    // };
+    removeFriend = (id) => {
+        axiosWithAuth()
+            .delete(`/friends/${id}`)
+                .then((res) => {
+                    console.log(res);
+                })
+                .catch((err) => {
+                    console.log("Error Deleting Friend:", err.response.data.error);
+                });
+    };
 
     render() {
         return (
@@ -48,7 +48,7 @@ class Friends extends React.Component {
                     <div>
                         <div className="friend-div">
                             {this.state.friends.map(friend => (
-                                <div className="individual-friend">
+                                <div className="individual-friend" key={friend.id}>
                                     <h2>{friend.name}</h2>
                                     <p>ID: {friend.id}</p>
                                     <p>Age: {friend.age}</p>
