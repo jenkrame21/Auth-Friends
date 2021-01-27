@@ -29,7 +29,7 @@ class Login extends React.Component {
                 this.props.history.push("/protected");
             })
             .catch((err) => {
-                console.log("ERROR LOGIN INCORRECT", err.message);
+                console.log("ERROR LOGIN INCORRECT:", err.message);
             });
     };
 

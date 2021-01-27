@@ -25,12 +25,23 @@ class Friends extends React.Component {
             })
     };
 
+    // removeFriend = () => {
+    //     axiosWithAuth()
+    //         .delete(`"/friends/${id}"`)
+    //             .then((res) => {
+    //                 console.log(res);
+    //             })
+    //             .catch((err) => {
+    //                 console.log(err.message);
+    //             });
+    // };
+
     render() {
         return (
             <Router>
                 <div>
                     <h1>Cast Members of "Friends"</h1>
-                    <Link to="/friendform">Add a Friend</Link>
+                    <Link to="/friendform"><button>Add a Friend</button></Link>
                     <Switch>
                         <Route path="/friendform" component={FriendForm} />
                     </Switch>
@@ -38,10 +49,11 @@ class Friends extends React.Component {
                         <div className="friend-div">
                             {this.state.friends.map(friend => (
                                 <div className="individual-friend">
-                                    <p>Name: {friend.name}</p>
+                                    <h2>{friend.name}</h2>
                                     <p>ID: {friend.id}</p>
                                     <p>Age: {friend.age}</p>
                                     <p>Email: {friend.email}</p>
+                                    <button className="removeBtn" onSubmit={this.removeFriend}>Remove Friend</button>
                                 </div>
                             ))}
                         </div>

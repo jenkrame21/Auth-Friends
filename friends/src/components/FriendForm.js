@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
 class FriendForm extends React.Component {
@@ -23,12 +22,14 @@ class FriendForm extends React.Component {
         axiosWithAuth()
             .post('/friends', this.state)
                 .then((res) => {
-                    console.log("Submit Friend Form Worked", res);
-                    
-                    // localStorage.setItem("token", res)
+                    console.log("Submit Friend Form Worked", res.data);
+                    this.setState({
+                        ...this.state,
+                        friends: res.data
+                    })
                 })
                 .catch((err) => {
-                    console.log(err);
+                    console.log("ERROR POSTING NEW FRIEND:", err.message);
                 });
     };
 
@@ -47,7 +48,7 @@ class FriendForm extends React.Component {
                     <label>ID: 
                         <input className="friendForm-input"
                         name="id"
-                        type="text"
+                        type="number"
                         value={this.state.id}
                         onChange={this.handleChange}
                         />
@@ -55,7 +56,7 @@ class FriendForm extends React.Component {
                     <label>Age: 
                         <input className="friendForm-input"
                         name="age"
-                        type="text"
+                        type="number"
                         value={this.state.age}
                         onChange={this.handleChange}
                         />
