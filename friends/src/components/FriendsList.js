@@ -25,16 +25,18 @@ class Friends extends React.Component {
             })
     };
 
-    removeFriend = (id) => {
-        axiosWithAuth()
-            .delete(`/friends/${id}`)
-                .then((res) => {
-                    console.log(res);
-                })
-                .catch((err) => {
-                    console.log("Error Deleting Friend:", err.response.data.error);
-                });
-    };
+    // removeFriend = (id) => {
+    //     axiosWithAuth()
+    //         .delete(`/friends/${id}`)
+    //             .then((res) => {
+    //                 // Need to locate id of friend to remove
+    //                 console.log(res);
+    //                 this.getFriends(res.data)
+    //             })
+    //             .catch((err) => {
+    //                 console.log("Error Deleting Friend:", err.response.data.error);
+    //             });
+    // };
 
     render() {
         return (
@@ -53,7 +55,7 @@ class Friends extends React.Component {
                                     <p>ID: {friend.id}</p>
                                     <p>Age: {friend.age}</p>
                                     <p>Email: {friend.email}</p>
-                                    <button className="removeBtn" onSubmit={this.removeFriend}>Remove Friend</button>
+                                    {/* <button className="removeBtn" onClick={this.removeFriend}>Remove Friend</button> */}
                                 </div>
                             ))}
                         </div>

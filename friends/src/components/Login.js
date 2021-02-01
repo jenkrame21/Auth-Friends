@@ -19,14 +19,17 @@ class Login extends React.Component {
         });
     };
 
-    login = e => {
+    handleLogin = e => {
         e.preventDefault();
         axiosWithAuth()
             .post("/login", this.state.credentials)
             .then((res) => {
-                // console.log(res);
+                // console.log("Login Successful: ", res.data);
                 localStorage.setItem("token", res.data.payload)
                 // console.log(this.props);
+                this.setState({ 
+                    isLoading: true 
+                });
                 this.props.history.push("/protected");
             })
             .catch((err) => {
@@ -35,10 +38,9 @@ class Login extends React.Component {
     };
 
     render() {
-        const { isLoading } = this.state
         return(
             <div className="login">
-                <form onSubmit={this.login}>
+                <form onSubmit={this.handleLogin}>
                     <h2>Login</h2>
                     <label>Username:
                         <input
